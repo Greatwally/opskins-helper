@@ -63,3 +63,9 @@ $(document).bind('DOMSubtreeModified',function(){
 		toggle = 0;
 	}
 });
+
+$(document).ready(function() {
+    $('#collapseTwo').collapse('hide');
+    $('#collapseOne').collapse('show');
+    iTrans();
+});
