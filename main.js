@@ -65,8 +65,8 @@ $(document).bind('DOMSubtreeModified',function(){
 	}
 });
 
-$(document).ready(function() {
-    $('#collapseTwo').collapse('hide');
-    $('#collapseOne').collapse('show');
-    iTrans();
-});
+
+$('#collapseTwo').collapse('hide');
+$('#collapseOne').collapse('show');
+iTrans();
+
