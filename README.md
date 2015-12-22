@@ -1,4 +1,4 @@
-# opskins-helper
+# opskins-helper API version
 OPSkins helper
 
 Simple GreaseMonkey/TamperMonkey script for OPSkins website.
