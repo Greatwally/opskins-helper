@@ -8,6 +8,8 @@
 // @grant        none
 // ==/UserScript==
 
+
+var Apikey = '';
 var toggle = 0;
 
 $(document).ready(function(e){
@@ -26,7 +28,6 @@ $(document).ready(function(e){
     });
 
     $('body').on('click', 'button.savePrice', function() {
-        var Apikey = '';
         var price = $(this).closest('.input-group').find('input').val().replace(',','.') * 100;
         var id = $(this).closest('tr').find('td:first').find('a').attr('href').split('&item=')[1];
         if(price > 0) {
