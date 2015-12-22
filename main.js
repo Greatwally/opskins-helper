@@ -30,7 +30,7 @@ $(document).ready(function(e){
         var price = $(this).closest('.input-group').find('input').val().replace(',','.') * 100;
         var id = $(this).closest('tr').find('td:first').find('a').attr('href').split('&item=')[1];
         if(price > 0) {
-            $.get( "https://opskins.com/api/user_api.php?request=EditItem&item_id="+id+"&amount="+price+"&key="+Apikey)
+            $.get( "https://opskins.com/api/user_api.php?request=EditItem&item_id="+id+"&amount="+price+"&key="+Apikey);
                }
     });
 });
