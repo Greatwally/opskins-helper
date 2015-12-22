@@ -2,10 +2,10 @@
 // @name         OPSkins Helper
 // @version      0.1
 // @description  OPSkins usability is dead.
-// @author       Halipso
+// @author       Greatwally. Forked from Halipso.
 // @match        https://opskins.com/?loc=store_account
 // @match        https://opskins.com/index.php?loc=store_account
-// @require      http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+// @grant        none
 // ==/UserScript==
 
 var toggle = 0;
@@ -20,20 +20,18 @@ $(document).ready(function(e){
             StatTrak = "&StatTrak=1";
         }
         $.get( "https://opskins.com/index.php?loc=shop_search&search_item="+name+"&min=&max=&inline=&grade=&inline=&type=&inline=&sort=lh"+StatTrak, function(data) {
-            input.val($(data).find('.item-amount:first').text().replace(',',''));
+            input.val($(data).find('.item-amount:first').text().replace('$',''));
         });
         return true;
     });
 
     $('body').on('click', 'button.savePrice', function() {
-        var price = $(this).closest('.input-group').find('input').val();
+        var Apikey = "";
+        var price = $(this).closest('.input-group').find('input').val().replace(',','.') * 100;
         var id = $(this).closest('tr').find('td:first').find('a').attr('href').split('&item=')[1];
         if(price > 0) {
-            $.post( "https://opskins.com/ajax/shop_account.php", { amount: price, type: "editItem", id: id })
-                .done(function( data ) {
-                    sendAlert(data);
-                });
-        }
+            $.get( "https://opskins.com/api/user_api.php?request=EditItem&item_id="+id+"&amount="+price+"&key="+Apikey)
+               }
     });
 });
 
